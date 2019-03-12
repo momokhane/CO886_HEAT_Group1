@@ -43,7 +43,7 @@ import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 import javax.swing.JSeparator;
 import javax.swing.SwingConstants;
-
+import java.io.IOException;
 
 /**
  * Window for altering HEATs settings
@@ -148,8 +148,23 @@ public class OptionsWindow {
     JPanel interpreterFontSize = new JPanel();
     interpreterFontSize.add(new JLabel("Interpreter font size:"));
     interpreterFontSize.add(jcbOutputFontSize);
+    JPanel magnifier = new JPanel();
+    JButton magnify = new JButton("Open Magnifier");
+    magnify.setToolTipText("Opens Windows Magnifier Tool");
+    magnify.addActionListener(new ActionListener() {
+        public void actionPerformed(ActionEvent e) {
+        	try {
+        		Process p = Runtime.getRuntime().exec("cmd /c magnify.exe");
+        	} 
+			catch (IOException e1) {
+        		e1.printStackTrace();
+        	}
+        }
+    });
     panelFontSizes.add(editorFontSize);
     panelFontSizes.add(interpreterFontSize);
+    magnifier.add(magnify);
+    panelFontSizes.add(magnifier);
     
     // combine panels on tabbed pane
     JTabbedPane tabOptions = new JTabbedPane();
