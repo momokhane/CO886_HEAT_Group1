@@ -27,11 +27,8 @@ import utils.Settings;
 
 import view.dialogs.FileDialogs;
 
-import java.awt.GridLayout;
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.*;
+import java.awt.event.*;
 
 import java.io.File;
 import javax.swing.JButton;
@@ -43,7 +40,7 @@ import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 import javax.swing.JSeparator;
 import javax.swing.SwingConstants;
-
+import java.io.IOException;
 
 /**
  * Window for altering HEATs settings
@@ -59,6 +56,7 @@ public class OptionsWindow {
   private JComboBox jcbOutputFontSize;
   private JComboBox jcbCodeFontSize;
   private JDialog dialog;
+  private boolean magActive = false;
 
   private SettingsManager sm = SettingsManager.getInstance();
   private WindowManager wm = WindowManager.getInstance();
@@ -148,8 +146,40 @@ public class OptionsWindow {
     JPanel interpreterFontSize = new JPanel();
     interpreterFontSize.add(new JLabel("Interpreter font size:"));
     interpreterFontSize.add(jcbOutputFontSize);
+    JPanel magnifier = new JPanel();
+    JButton magnify = new JButton("Toggle Magnifier");
+    magnify.setToolTipText("Toggles Windows Magnifier Tool");
+    magnify.addActionListener(new ActionListener() {
+	    // toggles Windows Magnifier.
+    	public void actionPerformed(ActionEvent e) {
+	    	if (!magActive) {	
+	    		try {
+	        		Process p = Runtime.getRuntime().exec("cmd /c magnify.exe");
+	        		magActive = true;
+	        	} 
+				catch (IOException e1) {
+	        		e1.printStackTrace();
+	        	}
+	    	} else {
+    		try {
+    	        Robot robot = new Robot();
+    	        robot.keyPress(KeyEvent.VK_WINDOWS);
+    	        robot.keyPress(KeyEvent.VK_ESCAPE);
+    	        robot.keyRelease(KeyEvent.VK_ESCAPE);
+    	        robot.keyRelease(KeyEvent.VK_WINDOWS);
+    	        magActive = false;
+
+	    	} catch (AWTException f) {
+	    	        f.printStackTrace();
+	    	}
+	    	}
+	    }
+        
+    });
     panelFontSizes.add(editorFontSize);
     panelFontSizes.add(interpreterFontSize);
+    magnifier.add(magnify);
+    panelFontSizes.add(magnifier);
     
     // combine panels on tabbed pane
     JTabbedPane tabOptions = new JTabbedPane();
