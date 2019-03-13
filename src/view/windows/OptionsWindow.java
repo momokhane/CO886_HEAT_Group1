@@ -171,7 +171,7 @@ public class OptionsWindow {
     JTabbedPane tabOptions = new JTabbedPane();
     tabOptions.addTab("Haskell Interpreter", panelInterpreter);
     tabOptions.addTab("Property Tests", panelTest);
-    tabOptions.addTab("Acessibility", panelFontSizes);
+    tabOptions.addTab("Accessibility", panelFontSizes);
   
     
     
