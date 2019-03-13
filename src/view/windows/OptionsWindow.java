@@ -147,8 +147,8 @@ public class OptionsWindow {
     interpreterFontSize.add(new JLabel("Interpreter font size:"));
     interpreterFontSize.add(jcbOutputFontSize);
     JPanel magnifier = new JPanel();
-    JButton magnify = new JButton("Open Magnifier");
-    magnify.setToolTipText("Opens Windows Magnifier Tool");
+    JButton magnify = new JButton("Toggle Magnifier");
+    magnify.setToolTipText("Toggles Windows Magnifier Tool");
     magnify.addActionListener(new ActionListener() {
 	    // toggles Windows Magnifier.
     	public void actionPerformed(ActionEvent e) {
