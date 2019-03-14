@@ -52,6 +52,10 @@ public class Settings {
    */
   public static final String CONSOLE_FONT_STYLE = "CONSOLE_FONT_STYLE";
 
+  /**
+   * Color Blind mode used in the display window
+   */
+  public static final String OUTPUT_COLOR_BLIND = "OUTPUT_COLOR_BLIND";
   /*
    * For Boolean unit tests or QuickCheck
    */
