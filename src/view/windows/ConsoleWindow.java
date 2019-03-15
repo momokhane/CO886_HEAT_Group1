@@ -141,7 +141,7 @@ public class ConsoleWindow {
    StyleConstants.setForeground(promptText,new Color(0,150,0));
    StyleConstants.setBold(inputText,true);
    jtaInterpreterOutput.setEditable(true);
-    /*Adding action map to the jtaInterpreterOutput */
+    /*Adding action map to the jtaInterpreterOutput*/
     jtaInterpreterOutput.getInputMap(JComponent.WHEN_FOCUSED)
     	.put(KeyStroke.getKeyStroke("ENTER"), "Evaluate");
     jtaInterpreterOutput.getActionMap().put("Evaluate", ActionManager
