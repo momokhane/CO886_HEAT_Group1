@@ -60,7 +60,7 @@ public class Settings {
   /**
    * Color Blind mode used in the editor window
    */
-  public static final String EDITOR_COLOR_BLIND = "OUTPUT_COLOR_BLIND";
+  public static final String EDITOR_COLOR_BLIND = "EDITOR_COLOR_BLIND";
   /*
    * For Boolean unit tests or QuickCheck
    */

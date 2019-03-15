@@ -166,7 +166,7 @@ public class OptionsWindow {
     interpreterFontSize.add(new JLabel("Interpreter font size:"));
     interpreterFontSize.add(jcbOutputFontSize);
     JPanel consoleFontStyle = new JPanel();
-    consoleFontStyle.add(new JLabel("Editor font style:"));
+    consoleFontStyle.add(new JLabel("Font Family:"));
     consoleFontStyle.add(jcbConsoleFontStyle);
     JPanel outputColorBlind = new JPanel();
     outputColorBlind.add(new JLabel("Color Blind Mode"));
@@ -314,22 +314,24 @@ public class OptionsWindow {
 	  	
 	    JCheckBox checkbox = (JCheckBox) jColorBlind;
 	    if (checkbox.isSelected()) { 
-	  
+	    	
 	    	wm.getConsoleWindow().NightMode();
 	    	wm.getEditorWindow().ENightMode();
-	    	wm.repaintAll();
+	    	
 	    
   	
 	    	} else {
 	    		
 	    	wm.getConsoleWindow().NormalMode();
 	    	wm.getEditorWindow().ENormalMode();
-	    	wm.repaintAll();
+	    	
 	    	
 	    	}
 	    
 	    jColorBlind.setSelected(true);
+	    wm.repaintAll();
 		return null;
+		
 	  }
   
   

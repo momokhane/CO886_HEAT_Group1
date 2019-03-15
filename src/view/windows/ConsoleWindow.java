@@ -98,42 +98,49 @@ public class ConsoleWindow {
   }
 
  public void NormalMode() {
-	  //jtaInterpreterOutput.repaint();
-	  jtaInterpreterOutput.setBackground(Color.WHITE);
-	  StyleConstants.setForeground(errorText,Color.RED);
-	  StyleConstants.setForeground(infoText,Color.BLUE);
-	  StyleConstants.setForeground(normalText, Color.BLACK);
-	  StyleConstants.setForeground(inputText,Color.DARK_GRAY);
-	  //jtaInterpreterOutput.repaint();
+	 
+	 	jspMain.setMinimumSize(new Dimension(0, 0));
+	    jspMain.setPreferredSize(new Dimension(100,150));
+	    jspMain.setAutoscrolls(true);
+	    jtaInterpreterOutput.setBackground(Color.WHITE);
+	    StyleConstants.setForeground(errorText,Color.RED);
+	    StyleConstants.setForeground(infoText,Color.BLACK);
+	    StyleConstants.setForeground(inputText,Color.DARK_GRAY);
+	    StyleConstants.setForeground(promptText,new Color(0,150,0));
+	    StyleConstants.setBold(inputText,true);
+	    jtaInterpreterOutput.setEditable(true);
 		  
   }
   
   public void NightMode() {
-	  //jtaInterpreterOutput.repaint();
-	  jtaInterpreterOutput.setBackground(Color.DARK_GRAY);
-	  StyleConstants.setForeground(errorText,Color.RED);
-	  StyleConstants.setForeground(infoText,Color.WHITE);
-	  StyleConstants.setForeground(normalText, Color.WHITE);
-	  StyleConstants.setForeground(inputText,Color.CYAN);
-	 
+	  
+	    jtaInterpreterOutput.setBackground(Color.DARK_GRAY);
+	    StyleConstants.setForeground(errorText,Color.RED);
+	    StyleConstants.setForeground(infoText,new Color(0,150,150));
+	    StyleConstants.setForeground(inputText,new Color(0,150,150));
+	    StyleConstants.setForeground(promptText,new Color(0,150,0));
+	    StyleConstants.setBold(inputText,true);
+	    jtaInterpreterOutput.setEditable(true);jtaInterpreterOutput.repaint();
+
+	
 	 
 	 }
   
   
   
   private void jbInit() throws Exception {
-    jspMain.setMinimumSize(new Dimension(0, 0));
-    jspMain.setPreferredSize(new Dimension(100,150));
-    jspMain.setAutoscrolls(true);
-    
-    jtaInterpreterOutput.setBackground(Color.WHITE);
-    StyleConstants.setForeground(normalText, Color.BLACK);
-    StyleConstants.setForeground(errorText,Color.RED);
-    StyleConstants.setForeground(infoText,Color.BLUE);
-    StyleConstants.setForeground(inputText,Color.BLACK);
-    StyleConstants.setForeground(promptText,new Color(0,150,0));
-    StyleConstants.setBold(inputText,true);
-    jtaInterpreterOutput.setEditable(true);
+	
+   jspMain.setMinimumSize(new Dimension(0, 0));
+   jspMain.setPreferredSize(new Dimension(100,150));
+   jspMain.setAutoscrolls(true);
+   jtaInterpreterOutput.setBackground(Color.WHITE);
+   StyleConstants.setForeground(normalText, new Color(0,150,150));
+   StyleConstants.setForeground(errorText,Color.RED);
+   StyleConstants.setForeground(infoText,Color.BLACK);
+   StyleConstants.setForeground(inputText,Color.BLACK);
+   StyleConstants.setForeground(promptText,new Color(0,150,0));
+   StyleConstants.setBold(inputText,true);
+   jtaInterpreterOutput.setEditable(true);
     /*Adding action map to the jtaInterpreterOutput*/
     jtaInterpreterOutput.getInputMap(JComponent.WHEN_FOCUSED)
     	.put(KeyStroke.getKeyStroke("ENTER"), "Evaluate");
@@ -164,16 +171,8 @@ public class ConsoleWindow {
     }
 
     jtaInterpreterOutput.setFont(displayFont);
+    jtaInterpreterOutput.repaint();
     
-    
-    
-    //if (colorblind.) {
-    	
-    	//jtaInterpreterOutput.setBackground(Color.BLACK);
-        //StyleConstants.setForeground(normalText, Color.WHITE);
-    	
-    	
-   // }
     
     /* This document filter ensures that the fixed content of the console, 
      * i.e. the initial content up to fixedContentEnd, cannot be modified.

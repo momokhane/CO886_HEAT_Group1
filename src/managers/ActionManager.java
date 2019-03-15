@@ -736,7 +736,6 @@ public class ActionManager {
         wm.getEditorWindow().setFontSize(codeFontsize, outputFontStyle);
         sm.setSetting(Settings.CODE_FONT_SIZE, codeFontSize);
         sm.setSetting(Settings.CONSOLE_FONT_STYLE, outputFontStyle);
-        //sm.setSetting(Settings.EDITOR_COLOR_BLIND, outputColorBlind);
       } catch (NumberFormatException nfe) {
         log.warning("[ActionManager] - Failed to parse " +
           Settings.CODE_FONT_SIZE + " setting from options window");

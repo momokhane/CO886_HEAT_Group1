@@ -265,8 +265,8 @@ public class EditorWindow {
   
   public void ENightMode() {
 	  //jtaCodeView.repaint();
-	  jtaCodeView.getPainter().setBackground(Color.darkGray);
-	  jtaCodeView.getPainter().setForeground(Color.WHITE);
+	  jtaCodeView.getPainter().setBackground(Color.DARK_GRAY);
+	  jtaCodeView.getPainter().setForeground(new Color(0,150,150));
 	  //jtaCodeView.repaint();;
 	 
 	 
